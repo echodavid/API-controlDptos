@@ -6,12 +6,12 @@
   "private": true,
   "license": "UNLICENSED",
   "engines": {
-    "node": "22.5.1"
+    "node": ">=22.x"
   },
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "node dist/main",
+    "start": "node dist/src/main",
     "start:dev": "ts-node-dev --respawn --transpile-only src/main.ts",
     "start:debug": "node nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -23,7 +23,6 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@nestjs/cli": "^10.4.8",
     "@nestjs/common": "^10.0.0",
     "@nestjs/config": "^3.3.0",
     "@nestjs/core": "^10.0.0",
