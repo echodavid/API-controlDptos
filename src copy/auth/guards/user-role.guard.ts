@@ -33,21 +33,11 @@ export class UserRoleGuard implements CanActivate {
     if (!user) {
       throw new BadRequestException('User not found');
     }
-<<<<<<< HEAD
-
-    for (const role of user.rol) {
-      if( validRoles.includes( role ) ) {
-        return true;
-      }
-    }
-
-=======
     if( validRoles.includes( user.rol ) ) {
       return true;
     }
 
 
->>>>>>> c77ee3be2b1af5a5994e27eab4c772d8eed39cc4
     throw new ForbiddenException('User does not have permission to access this resource');
   }
 }

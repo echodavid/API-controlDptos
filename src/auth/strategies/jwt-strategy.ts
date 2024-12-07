@@ -5,6 +5,7 @@ import { JwtPayload } from "../interfaces/jwt-payload.interface";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { Injectable, UnauthorizedException } from "@nestjs/common";
+import { UUID } from "crypto";
 
 
 @Injectable()
@@ -23,7 +24,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     async validate(payload: JwtPayload) : Promise<User> {
         const { id } = payload;
 
-        const user = await this.userRepository.findOneBy({ id });
+        const user = await this.userRepository.findOneBy({ id: id as UUID });
 
 
         if (!user) {
